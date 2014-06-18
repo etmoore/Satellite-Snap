@@ -41,10 +41,27 @@ MAP
 *************************/
 
 #map {
-  width: 60%;
+  width: 72%;
   height: 300px;
   border: 1px solid black;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
+  /*position: relative;*/
+  display: inline-block;
+  padding: 0 15px 0 0;
+}
+
+/************************
+SATELLITE BAR
+*************************/
+
+#satellite-bar {
+  width: 25%;
+  height: 300px;
+  /*position: relative;*/
+  display: inline-block;
+  border: 1px solid black;
+  /*margin: 0 auto;*/
+  float: right;
 }
 
 /************************

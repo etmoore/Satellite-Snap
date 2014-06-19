@@ -18,6 +18,11 @@ a:hover {
 h1 {
   font-family: 'Pacifico', cursive;
   font-size: 3em;
+  color: #2231ff;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
 }
 
 /************************
@@ -27,7 +32,6 @@ HEADER
 header {
   width: 100%;
   margin: 0 auto;
-  padding: 0;
   /*border: 1px solid black;*/
 }
 

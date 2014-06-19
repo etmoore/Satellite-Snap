@@ -3,37 +3,50 @@
 
 <head>
   <title>Satellite Snap!</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles/normalize.css">
-  <link rel="stylesheet" type="text/css" href="styles/main.css">
-  <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="stylesheets/normalize.css">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <link rel="stylesheet" href="stylesheets/responsive.css">
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC_CagwA76eKAN95LB-_r16KygInymPOxI"></script>
+  <script type="text/javascript">
+    function initialize() {
+      var mapOptions = {
+        center: new google.maps.LatLng(-34.397, 150.644),
+        zoom: 8
+      };
+      var map = new google.maps.Map(document.getElementById("map-canvas"),
+          mapOptions);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
 </head>
 
 <body>
   <div id="wrapper">
     <header>
       <h1 id="headline">Satellite Snap!</h1>
-      <nav></nav>
     </header>
-    <div id="map">MAP</div>
-    <div id="satellite-bar">SATELLITE</div>
-    <footer>
-      <a href="http://github.com/etmoore">
-        <img src="assets/images/GitHub.png" alt="GitHub Logo" class="social-icon">
-      </a>
-      <a href="http://linkedin.com/in/etmoore1">
-        <img src="assets/images/LinkedIn.png" alt="LinkedIn Logo" class="social-icon">
-      </a>
-      <a href="http://google.com/+EvanMoore1">
-        <img src="assets/images/Google+.png" alt="Google+ Logo" class="social-icon">
-      </a>
-      <p>&copy; 2014 Evan Moore.</p>
-    </footer>
+    <div id="map-canvas"></div>
   </div>
+
+  <footer>
+    <a href="http://github.com/etmoore">
+      <img src="images/GitHub.png" alt="GitHub Logo" class="social-icon">
+    </a>
+    <a href="http://linkedin.com/in/etmoore1">
+      <img src="images/LinkedIn.png" alt="LinkedIn Logo" class="social-icon">
+    </a>
+    <a href="http://google.com/+EvanMoore1">
+      <img src="images/Google+.png" alt="Google+ Logo" class="social-icon">
+    </a>
+    <p>&copy; 2014 Evan Moore.</p>
+  </footer>
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
   <script type="app.js"></script>
 </body>
 

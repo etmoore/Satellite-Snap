@@ -1,39 +1,22 @@
-var app = {
-  init: function() {
-    //Load the Google map
-    google.maps.event.addDomListener(window, 'load', app.loadMap);
+var map = L.map('map').setView([39.916015, -104.984253], 10);
 
-    //Listen for click event
-    // $('#map-canvas').on('click', function(event){
-    //   placeMarker(event.latLng);
-    // });
-      // get coordinates of click
-      // drop marker where user clicks
-      // get satellite image from digital globe api
-      // add image as background to satellite div
-  },
+L.tileLayer('http://{s}.tiles.mapbox.com/v3/etmoore.iico2pe3/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18
+}).addTo(map);
 
-  loadMap: function() {
-    var mapOptions = {
-      center: new google.maps.LatLng(39.916015, -104.984253),
-      zoom: 9
-    };
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+var popup = L.popup();
 
-    google.maps.event.addListener(map, 'click', function(e) {
-      app.placeMarker(e.latLng, map);
-    });
-  },
+function onMapClick(e) {
+    var coordinates = e.latlng;
+    popup
+        .setLatLng(coordinates)
+        .setContent(getSatImage(coordinates))
+        .openOn(map);
+}
 
-  placeMarker: function(position, map) {
-    var marker = new google.maps.Marker({
-      position: position,
-      map: map
-    });
-    map.panTo(position);
-  }
-};
+function getSatImage(coordinates) {
+  return '<img style="width:300px;height:300px;" src="http://dev1.tomnod.com/chip_api/chip/lat/' + coordinates.lat + '/lng/' + coordinates.lng + '"/>'
+}
 
-$(function() {
-  app.init();
-})
+map.on('click', onMapClick);
